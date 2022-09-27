@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import UserContext from './userContext'
 
 function Topbar() {
+    let context = useContext(UserContext)
     let navigate = useNavigate()
     let logout = () => {
         navigate("/")
@@ -174,18 +176,18 @@ function Topbar() {
 
                         
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <Link class="nav-link dropdown-toggle" to={"/portal/profile"} id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span onClick={logout} class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span onClick={logout} class="mr-2 d-none d-lg-inline text-gray-600 small">{context.username} </span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg"/>
-                            </a>
+                            </Link>
                            
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" to='#'>
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    {context.username}
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>

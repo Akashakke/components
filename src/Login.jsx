@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserContext from './userContext';
 
 function Login() {
   let navigate = useNavigate()
+  let context = useContext(UserContext)
+  let username ="abc";
+  let pass ="123";
   let login = () => {
-    navigate("/portal/dashboard")
+    if(username == "abc" && pass == "123") {
+    context.setUsername("Akash")
+    navigate("/portal/dashboard");
+    }else {
+    alert("Wrong credentials")
+}
   }
   return (
     <div class="container">

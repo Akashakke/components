@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from './userContext'
 
 function Sidebar() {
+    let context = useContext(UserContext)
   return (
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -10,13 +12,15 @@ function Sidebar() {
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup>
+        <br/>{context.username}
+        </div>
     </Link>
 
     
     <hr class="sidebar-divider my-0"/>
 
-    
+     
     <li class="nav-item active">
         <Link class="nav-link" to="/portal/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -26,14 +30,16 @@ function Sidebar() {
         <Link class="nav-link" to="/portal/users">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Users</span></Link>
+            
     </li>
+    
     <li class="nav-item active">
         <Link class="nav-link" to="/portal/products">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Products</span></Link>
     </li>
     <li class="nav-item active">
-        <Link class="nav-link" to="/portal/users.id">
+        <Link class="nav-link" to="/portal/users/:userid">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Userview</span></Link>
     </li>
