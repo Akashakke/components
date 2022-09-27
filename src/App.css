@@ -11278,3 +11278,6 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+.input-error{
+  border: 1px solid red;
+}
